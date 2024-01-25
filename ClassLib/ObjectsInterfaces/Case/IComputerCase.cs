@@ -13,11 +13,11 @@ namespace ClassLib.ObjectsInterfaces.Case
         double Price();
         CaseSize CaseType();
 
-        MotherBoardTypes MotherBoardStandard();
+        List<MotherBoardTypes> MotherBoardStandard();
 
-        string Dimensions();
+        int[] Dimensions(); //Height.Width.Depth in mm
 
-        int[] Weight(); //Height.Width.Depth
+        int Weight(); 
 
         string Color();
 

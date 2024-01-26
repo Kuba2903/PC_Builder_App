@@ -43,5 +43,10 @@ namespace ClassLib.Builder
         public List<IComputerRAMStick> RAMSticks { get; set; }
 
         public ISpeakers Speaker { get; set; }
+
+        public Computer()
+        {
+            RAMSticks = new List<IComputerRAMStick>();
+        }
     }
 }

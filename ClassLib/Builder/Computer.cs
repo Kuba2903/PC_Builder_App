@@ -72,7 +72,6 @@ namespace ClassLib.Builder
 
         public double GetPrice()
         {
-            double price = 0;
 
             double ramPrice = 0;
 
@@ -81,11 +80,29 @@ namespace ClassLib.Builder
                 ramPrice += x.Price();
             }
 
-            price += Case.Price() + Cooler.Price() + CPU.Price() + Drive.Price() + GPU.Price() + 
+            double price = Case.Price() + Cooler.Price() + CPU.Price() + Drive.Price() + GPU.Price() + 
                 MotherBoard.Price() + Keyboard.Price() + Monitor.Price() + Mouse.Price() + PSU.Price()
                 + Speaker.Price() + ramPrice;
 
-            return price;
+            return Math.Round(price,2);
         }
+
+
+        public string GetShortSpecification()
+        {
+            int memory = 0;
+            foreach (var x in RAMSticks)
+            {
+                memory += x.GBMemoryAmount();
+            }
+
+            return $"CPU: \n --- Model: {CPU.Producer()} {CPU.Model()} \n" +
+                $" --- Clock Speed: {CPU.ClockSpeed()} \n --- Number of cores: {CPU.NumberOfCores()}\n" +
+                $"GPU: \n --- Model: {GPU.Producer()} {GPU.Model()} \n --- Memory: {GPU.GBMemory()} \n" +
+                $"RAM: \n --- Memory: {memory} gb \nDrive: \n --- Speed: {Drive.Speed()} rpm \n" +
+                $" --- Type: {Drive.DiskType()} \n --- Memory: {Drive.GBDiskSize()} gb" ;
+        }
+
+
     }
 }

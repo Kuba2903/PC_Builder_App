@@ -12,6 +12,9 @@ namespace Launcher
 
             Console.WriteLine(computer.MotherBoard.Name());
             Console.WriteLine(computer.CPU.Model());
+            Console.WriteLine(computer.CheckCompatibility());
+            Console.WriteLine(computer.GetPrice());
+            Console.WriteLine(computer.GetShortSpecification());
         }
     }
 }

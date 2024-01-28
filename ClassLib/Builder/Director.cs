@@ -7,7 +7,9 @@ using ClassLib.ObjectsInterfaces.Keyboards;
 using ClassLib.ObjectsInterfaces.Monitors;
 using ClassLib.ObjectsInterfaces.Motherboards;
 using ClassLib.ObjectsInterfaces.Mouse;
+using ClassLib.ObjectsInterfaces.PowerSupply;
 using ClassLib.ObjectsInterfaces.RAMSticks;
+using ClassLib.ObjectsInterfaces.Speakers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,8 @@ namespace ClassLib.Builder
             builder.buildMonitor(new Toshiba43UAMonitor());
             builder.buildMouse(new GamingMouse());
             builder.buildRAM(new CorsairRAM());
+            builder.buildPowerSupply(new BeQuietPSU());
+            builder.buildSpeakers(new LogitechSpeaker());
             
             return builder.GetComputer();
             

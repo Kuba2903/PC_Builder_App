@@ -48,5 +48,44 @@ namespace ClassLib.Builder
         {
             RAMSticks = new List<IComputerRAMStick>();
         }
+
+
+        public bool CheckCompatibility()
+        {
+            if (Case.MotherBoardStandard().Contains(MotherBoard.MotherBoardStandard()))
+            {
+                if (MotherBoard.SocketType().Equals(CPU.SocketType()))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public double GetPrice()
+        {
+            double price = 0;
+
+            double ramPrice = 0;
+
+            foreach (var x in RAMSticks)
+            {
+                ramPrice += x.Price();
+            }
+
+            price += Case.Price() + Cooler.Price() + CPU.Price() + Drive.Price() + GPU.Price() + 
+                MotherBoard.Price() + Keyboard.Price() + Monitor.Price() + Mouse.Price() + PSU.Price()
+                + Speaker.Price() + ramPrice;
+
+            return price;
+        }
     }
 }

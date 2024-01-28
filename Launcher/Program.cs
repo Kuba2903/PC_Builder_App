@@ -8,11 +8,9 @@ namespace Launcher
         {
             Director director = new Director();
             ComputerBuilder builder = new ComputerBuilder();
-            var computer = director.constructGamingComputer(builder);
+            var computer = director.constructMidRangeComputer(builder);
 
-            Console.WriteLine(computer.MotherBoard.Name());
-            Console.WriteLine(computer.CPU.Model());
-            Console.WriteLine(computer.CheckCompatibility());
+
             Console.WriteLine(computer.GetPrice());
             Console.WriteLine(computer.GetShortSpecification());
         }

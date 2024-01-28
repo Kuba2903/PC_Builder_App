@@ -22,21 +22,49 @@ namespace ClassLib.Builder
     {
         public Computer constructGamingComputer(ComputerBuilder builder)
         {
-            builder.buildCase(new ComputerMidTowerCase());
-            builder.buildCooler(new DeepCool());           
-            builder.buildCPU(new Ryzen5CPU());
-            builder.buildMotherBoard(new AsusGamingMotherBoard());
-            builder.buildDrive(new SeagateHDD());
-            builder.buildGPU(new GTX1650GPU());
+            builder.buildCase(new ComputerFullTowerCase());
+            builder.buildCooler(new MasterLiquidCool());           
+            builder.buildCPU(new Ryzen7CPU());
+            builder.buildMotherBoard(new TomahawkMotherBoard());
+            builder.buildDrive(new Samsung870SSD());
+            builder.buildGPU(new RTX3050GPU());
             builder.buildKeyboard(new SteelSeriesGamingKeyboard());
             builder.buildMonitor(new Toshiba43UAMonitor());
             builder.buildMouse(new GamingMouse());
             builder.buildRAM(new CorsairRAM());
+            builder.buildRAM(new CorsairRAM());
             builder.buildPowerSupply(new BeQuietPSU());
             builder.buildSpeakers(new LogitechSpeaker());
-            
-            return builder.GetComputer();
-            
+
+            var pc = builder.GetComputer();
+
+            if (pc.CheckCompatibility())
+                return pc;
+            else
+                throw new Exception();
+        }
+
+
+        public Computer constructMidRangeComputer(ComputerBuilder builder)
+        {
+            builder.buildCase(new ComputerMidTowerCase());
+            builder.buildCooler(new DeepCool());
+            builder.buildCPU(new I5_124CPU());
+            builder.buildMotherBoard(new GigabyteGamingMotherBoard());
+            builder.buildDrive(new Samsung990SSD());
+            builder.buildGPU(new GTX1650GPU());
+            builder.buildKeyboard(new LogitechG915Keyboard());
+            builder.buildMonitor(new PhilipsMonitor());
+            builder.buildMouse(new LogitechMouse());
+            builder.buildRAM(new KingstonFuryRAM());
+            builder.buildPowerSupply(new CorsairPSU());
+            builder.buildSpeakers(new LogitechSpeaker());
+
+            var pc = builder.GetComputer();
+
+            if(pc.CheckCompatibility())
+                return pc;
+            else throw new Exception();
         }
     }
 }

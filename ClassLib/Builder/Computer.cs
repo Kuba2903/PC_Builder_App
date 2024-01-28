@@ -56,7 +56,14 @@ namespace ClassLib.Builder
             {
                 if (MotherBoard.SocketType().Equals(CPU.SocketType()))
                 {
-                    return true;
+                    if(Cooler.CompatibleSockets().Contains(CPU.SocketType()))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {

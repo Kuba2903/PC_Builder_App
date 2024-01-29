@@ -14,7 +14,7 @@ using ClassLib.ObjectsInterfaces.Speakers;
 
 namespace UnitTests
 {
-    public class UnitTest
+    public class UnitTest1
     {
         [Fact]
         public void CheckPrice()
@@ -34,7 +34,7 @@ namespace UnitTests
                 + comp.Case.Price() + comp.Monitor.Price() + comp.Cooler.Price() + comp.Keyboard.Price()
                 + comp.MotherBoard.Price() + comp.Mouse.Price() + comp.Speaker.Price() + ramPrice;
 
-            Assert.Equal(expected,comp.GetPrice());
+            Assert.Equal(expected, comp.GetPrice());
         }
 
 
@@ -61,7 +61,7 @@ namespace UnitTests
 
             bool expected = false;
 
-            Assert.Equal(expected,comp.CheckCompatibility());
+            Assert.Equal(expected, comp.CheckCompatibility());
         }
 
         [Fact]
@@ -73,8 +73,8 @@ namespace UnitTests
             var comp = director.constructGamingComputer(builder);
 
             bool expected = true;
-            
-            Assert.Equal(expected,comp.CheckCompatibility());
+
+            Assert.Equal(expected, comp.CheckCompatibility());
         }
     }
 }

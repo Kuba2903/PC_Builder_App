@@ -9,7 +9,7 @@ namespace Launcher
             Director director = new Director();
             ComputerBuilder builder = new ComputerBuilder();
             
-            var computer = director.constructMidRangeComputer(builder);
+            var computer = director.constructLowRangeComputer(builder);
 
             
             Console.WriteLine(computer.GetPrice());

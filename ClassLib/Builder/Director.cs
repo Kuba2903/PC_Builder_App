@@ -84,7 +84,6 @@ namespace ClassLib.Builder
             builder.buildMouse(new LogitechMouse());
             builder.buildRAM(new KingstonFuryRAM());
             builder.buildPowerSupply(new MSIPSU());
-            builder.buildPowerSupply(new CorsairPSU());
             builder.buildSpeakers(new LogitechSpeaker());
 
             var pc = builder.GetComputer();

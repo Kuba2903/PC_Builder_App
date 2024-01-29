@@ -50,25 +50,12 @@ namespace ClassLib.Builder
         }
 
 
-        public bool CheckCompatibility()
+        internal bool CheckCompatibility()
         {
-            if (Case.MotherBoardStandard().Contains(MotherBoard.MotherBoardStandard()))
+            if (Case.MotherBoardStandard().Contains(MotherBoard.MotherBoardStandard()) && MotherBoard.SocketType().Equals(CPU.SocketType())
+                && Cooler.CompatibleSockets().Contains(CPU.SocketType()) && PSU.Standard().Equals(MotherBoard.MotherBoardStandard()))
             {
-                if (MotherBoard.SocketType().Equals(CPU.SocketType()))
-                {
-                    if(Cooler.CompatibleSockets().Contains(CPU.SocketType()))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             else
             {

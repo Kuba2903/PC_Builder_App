@@ -1,4 +1,5 @@
-﻿using ClassLib.ObjectsInterfaces.Case;
+﻿using ClassLib.Objects.CPU_s;
+using ClassLib.ObjectsInterfaces.Case;
 using ClassLib.ObjectsInterfaces.Coolers;
 using ClassLib.ObjectsInterfaces.CPU_s;
 using ClassLib.ObjectsInterfaces.Drives;
@@ -33,6 +34,7 @@ namespace ClassLib.Builder
             builder.buildMouse(new GamingMouse());
             builder.buildRAM(new CorsairRAM());
             builder.buildRAM(new CorsairRAM());
+            builder.buildRAM(new CorsairRAM());
             builder.buildPowerSupply(new BeQuietPSU());
             builder.buildSpeakers(new LogitechSpeaker());
 
@@ -57,12 +59,37 @@ namespace ClassLib.Builder
             builder.buildMonitor(new PhilipsMonitor());
             builder.buildMouse(new LogitechMouse());
             builder.buildRAM(new KingstonFuryRAM());
+            builder.buildRAM(new KingstonFuryRAM());
             builder.buildPowerSupply(new CorsairPSU());
             builder.buildSpeakers(new LogitechSpeaker());
 
             var pc = builder.GetComputer();
 
             if(pc.CheckCompatibility())
+                return pc;
+            else throw new Exception();
+        }
+
+
+        public Computer constructLowRangeComputer(ComputerBuilder builder)
+        {
+            builder.buildCase(new ComputerMidTowerCase());
+            builder.buildCooler(new AsusCool());
+            builder.buildMotherBoard(new MSIProMotherBoard());
+            builder.buildCPU(new Ryzen3CPU());
+            builder.buildDrive(new SeagateHDD());
+            builder.buildGPU(new RX4200GPU());
+            builder.buildKeyboard(new LogitechG915Keyboard());
+            builder.buildMonitor(new PhilipsMonitor());
+            builder.buildMouse(new LogitechMouse());
+            builder.buildRAM(new KingstonFuryRAM());
+            builder.buildPowerSupply(new MSIPSU());
+            builder.buildPowerSupply(new CorsairPSU());
+            builder.buildSpeakers(new LogitechSpeaker());
+
+            var pc = builder.GetComputer();
+
+            if (pc.CheckCompatibility())
                 return pc;
             else throw new Exception();
         }

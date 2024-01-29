@@ -8,9 +8,10 @@ namespace Launcher
         {
             Director director = new Director();
             ComputerBuilder builder = new ComputerBuilder();
+            
             var computer = director.constructMidRangeComputer(builder);
 
-
+            
             Console.WriteLine(computer.GetPrice());
             Console.WriteLine(computer.GetShortSpecification());
         }
